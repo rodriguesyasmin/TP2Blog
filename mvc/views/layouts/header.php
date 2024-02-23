@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -9,13 +9,15 @@
 </head>
 
 <body>
+
+
     <header>
+        <div class="header-img">
+        </div>
         <nav>
-            <ul>
-                <li><a href="{{base}}/commentaire">Commentaires</a></li>
-                <li><a href="">Users</a></li>
-                <li><a href="">Login</a></li>
-            </ul>
+            <a href="{{base}}/commentaire">Commentaires</a>
+            <a href="">Users</a>
+            <a href="">Login</a>
         </nav>
-    </header>
+    </header>';
     <main>

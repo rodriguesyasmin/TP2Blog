@@ -2,28 +2,28 @@
 <div class="container">
     <h2>Créer commentaire dossier/commentaire</h2>
     <form method="post">
-        <label>Commentaire:
-            <textarea name="contenu" style="width: 100%;"></textarea>
-        </label>
+        <label>Commentaire: </label>
+        <textarea name="contenu" style="width: 100%;"> {{ commentaire.contenu }} </textarea>
+
         {% if errors.contenu is defined %}
         <span class="error">{{ errors.contenu }}</span>
         {% endif %}
-        <label>Date:
-            <input type="date" name="date" value="">
-        </label>
+        <label>Date:</label>
+        <input type="date" name="date" value=" {{ commentaire.date }}">
+
         {% if errors.date is defined %}
         <span class="error">{{ errors.date }}</span>
         {% endif %}
-        <label>Clé Étrangère article :
-            <input type="number" name="blog_article_id" value="">
-        </label>
+        <label> ID article :</label>
+        <input type="number" name="blog_article_id" value=" {{ commentaire.blog_article_id }}">
+
         {% if errors.blog_article_id is defined %}
         <span class="error">{{ errors.blog_article_id }}</span>
         {% endif %}
 
-        <label>Clé Étrangère user
-            <input type="number" name="blog_user_id" value="">
-        </label>
+        <label>ID user </label>
+        <input type="number" name="blog_user_id" value="{{commentaire.blog_user_id}}">
+
         {% if errors.blog_user_id is defined %}
         <span class="error">{{ errors.blog_user_id }}</span>
         {% endif %}

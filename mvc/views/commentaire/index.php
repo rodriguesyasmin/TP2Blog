@@ -1,5 +1,5 @@
 {{include('layouts/header.php', {title: 'Index'})}}
-<h1>Commentaire Index</h1>
+<h1>Commentaires:</h1>
 <table>
     <thead>
         <tr>
@@ -16,6 +16,6 @@
         {% endfor %}
     </tbody>
 </table>
-<a href="{{ base }}/commentaire/create" class="btn">Créer commentaire</a>
+<a href="{{ base }}/commentaire/create" class="block">Créer commentaire</a>
 
 {{include('layouts/footer.php')}}

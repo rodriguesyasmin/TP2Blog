@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\CRUD;
 
-class Client extends CRUD
+class Commentaire extends CRUD
 {
     protected $table = 'blog_commentaire';
     protected $primaryKey = 'id';

@@ -2,9 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Models\Client;
+use App\Models\Commentaire;
 use App\Providers\View;
 use App\Providers\Validator;
+
 
 
 class CommentaireController
@@ -13,10 +14,10 @@ class CommentaireController
     public function index()
     {
 
-        $client = new Client;
-        $select = $client->select();
+        $commentaire = new Commentaire;
+        $select = $commentaire->select();
         //print_r($select);
-        //include('views/client/index.php');
+        //include('views/commentaire/index.php');
         if ($select) {
             return View::render('commentaire/index', ['commentaires' => $select]);
         } else {
@@ -28,8 +29,8 @@ class CommentaireController
     {
         if (isset($data['id']) && $data['id'] != null) {
 
-            $client = new Client;
-            $selectId = $client->selectId($data['id']);
+            $commentaire = new Commentaire;
+            $selectId = $commentaire->selectId($data['id']);
             if ($selectId) {
                 return View::render('/commentaire/show', ['commentaire' => $selectId]);
             } else {
@@ -49,7 +50,7 @@ class CommentaireController
     {
 
         $validator = new Validator;
-        $validator->field('contenu', $data['contenu'], 'Le nom')->min(3)->required();
+        $validator->field('contenu', $data['contenu'], 'Commentaire')->min(3)->required();
         $validator->field('date', $data['date'])->required();
         $validator->field('blog_user_id', $data['blog_user_id'])->required();
         $validator->field('blog_article_id', $data['blog_article_id'])->required();
@@ -57,9 +58,9 @@ class CommentaireController
 
 
         if ($validator->isSuccess()) {
-            $client = new Client;
-            var_dump($client);
-            $insert = $client->insert($data);
+            $commentaire = new Commentaire;
+            var_dump($commentaire);
+            $insert = $commentaire->insert($data);
             if ($insert) {
                 return View::redirect('commentaire');
             } else {
@@ -76,8 +77,8 @@ class CommentaireController
     {
 
         if (isset($data['id']) && $data['id'] != null) {
-            $client = new Client;
-            $selectId = $client->selectId($data['id']);
+            $commentaire = new Commentaire;
+            $selectId = $commentaire->selectId($data['id']);
             if ($selectId) {
                 return View::render('commentaire/edit', ['commentaire' => $selectId]);
             } else {
@@ -97,8 +98,8 @@ class CommentaireController
 
 
         if ($validator->isSuccess()) {
-            $client = new Client;
-            $update = $client->update($data, $get['id']);
+            $commentaire = new Commentaire;
+            $update = $commentaire->update($data, $get['id']);
             if ($update) {
                 return View::redirect('commentaire');
             } else {
@@ -107,14 +108,14 @@ class CommentaireController
         } else {
             $errors = $validator->getErrors();
             //print_r($errors);
-            return View::render('commentaire/edit', ['errors' => $errors, 'client' => $data]);
+            return View::render('commentaire/edit', ['errors' => $errors, 'commentaire' => $data]);
         }
     }
 
     public function delete($data)
     {
-        $client = new  Client;
-        $delete = $client->delete($data['id']);
+        $commentaire = new  Commentaire;
+        $delete = $commentaire->delete($data['id']);
         if ($delete) {
             return View::redirect('commentaire');
         } else {

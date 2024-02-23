@@ -7,7 +7,6 @@ use App\Routes\Route;
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/home', 'HomeController@home');
 
 Route::get('/commentaire', 'CommentaireController@index');
 
